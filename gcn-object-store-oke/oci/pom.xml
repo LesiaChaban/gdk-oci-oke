@@ -138,7 +138,8 @@ limitations under the License.
         <artifactId>jib-maven-plugin</artifactId>
         <configuration>
           <to>
-            <image>${project.name}</image>
+            <!-- <image>${project.name}</image> -->
+            <image>${jib.to.image}</image>
           </to>
         </configuration>
       </plugin>
