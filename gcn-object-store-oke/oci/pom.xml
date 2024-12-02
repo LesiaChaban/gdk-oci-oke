@@ -33,6 +33,11 @@ limitations under the License.
     <jdk.version>17</jdk.version>
     <release.version>17</release.version>
     <exec.mainClass>com.example.Application</exec.mainClass>
+    <micronaut.native-image.base-image-run>frolvlad/alpine-glibc:alpine-3.16</micronaut.native-image.base-image-run>
+    <!-- Using the latest GFTC Oracle GraalVM for JDK 17 Native Image container image to build the native executable -->
+    <jib.from.image>container-registry.oracle.com/graalvm/native-image:17-ol8</jib.from.image>
+    <!-- Using the OCIR Repo to push the generated runtime image containing the native executable -->
+    <jib.to.image>${env.OCI_OS_OKE_IMAGE}</jib.to.image>
     <micronaut.runtime>netty</micronaut.runtime>
   </properties>
 
