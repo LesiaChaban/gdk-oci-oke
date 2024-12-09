@@ -33,6 +33,13 @@ limitations under the License.
     <release.version>21</release.version>
     <exec.mainClass>com.example.Application</exec.mainClass>
     <micronaut.runtime>netty</micronaut.runtime>
+    <exec.mainClass>com.example.Application</exec.mainClass>
+    <!-- Runtime base container image to package the native executable -->
+    <micronaut.native-image.base-image-run>frolvlad/alpine-glibc:alpine-3.16</micronaut.native-image.base-image-run>
+    <!-- Using the latest GFTC Oracle GraalVM for JDK 21 Native Image container image to build the native executable -->
+    <jib.from.image>container-registry.oracle.com/graalvm/native-image:21-ol8</jib.from.image>
+    <!-- Using the OCIR Repo to push the generated runtime image containing the native executable -->
+    <jib.to.image>${env.OCI_OS_OKE_IMAGE}</jib.to.image>
   </properties>
 
   <repositories>
@@ -48,6 +55,10 @@ limitations under the License.
   </repositories>
 
   <dependencies>
+    <dependency>
+      <groupId>io.micronaut.oraclecloud</groupId>
+      <artifactId>micronaut-oraclecloud-oke-workload-identity</artifactId>
+    </dependency>
     <dependency>
       <groupId>com.example</groupId>
       <artifactId>lib</artifactId>
@@ -127,6 +138,19 @@ limitations under the License.
   </dependencies>
   <build>
     <plugins>
+      <plugin>
+        <groupId>com.google.cloud.tools</groupId>
+        <artifactId>jib-maven-plugin</artifactId>
+        <configuration>
+          <to>
+            <!-- <image>${project.name}</image> -->
+            <image>${jib.to.image}</image>
+          </to>
+          <from>
+            <image>${jib.from.image}</image>
+          </from>
+        </configuration>
+      </plugin>
       <plugin>
         <groupId>io.micronaut.maven</groupId>
         <artifactId>micronaut-maven-plugin</artifactId>

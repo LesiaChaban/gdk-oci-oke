@@ -13,6 +13,7 @@ spec:
         app: "oci"
     spec:
       serviceAccountName: gcn-service-acct # <ii>
+      automountServiceAccountToken: true
       containers:
         - name: "oci"
           image: ${OCI_OS_OKE_IMAGE} # <iii>
@@ -60,3 +61,4 @@ spec:
   ports:
     - protocol: "TCP"
       port: 8080
+
