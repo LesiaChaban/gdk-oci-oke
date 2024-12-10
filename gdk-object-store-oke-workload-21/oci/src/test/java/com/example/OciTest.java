@@ -24,7 +24,7 @@ import org.junit.jupiter.api.Assertions;
 import jakarta.inject.Inject;
 
 @MicronautTest
-class GdkObjectStoreOkeWorkloadOciTest {
+class GdkObjectStoreOkeWorkload21OciTest {
 
     @Inject
     EmbeddedApplication<?> application;

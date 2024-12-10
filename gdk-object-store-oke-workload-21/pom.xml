@@ -32,10 +32,10 @@ limitations under the License.
           <url>https://maven.oracle.com/public</url>
         </repository>
     </repositories>
-    <artifactId>gdk-object-store-oke-workload-parent</artifactId>
+    <artifactId>gdk-object-store-oke-workload-21-parent</artifactId>
     <version>1.0-SNAPSHOT</version>
     <groupId>com.example</groupId>
-    <name>gdk-object-store-oke-workload</name>
+    <name>gdk-object-store-oke-workload-21</name>
     <packaging>pom</packaging>
 
     <modules>
