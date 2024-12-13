@@ -30,8 +30,8 @@ limitations under the License.
 
   <properties>
     <packaging>jar</packaging>
-    <jdk.version>17</jdk.version>
-    <release.version>17</release.version>
+    <jdk.version>21</jdk.version>
+    <release.version>21</release.version>
   </properties>
 
   <repositories>
@@ -39,7 +39,7 @@ limitations under the License.
       <id>central</id>
       <url>https://repo.maven.apache.org/maven2</url>
     </repository>
-
+    
     <repository>
       <id>gdk</id>
       <url>https://maven.oracle.com/public</url>
@@ -47,10 +47,6 @@ limitations under the License.
   </repositories>
 
   <dependencies>
-    <dependency>
-      <groupId>io.micronaut.oraclecloud</groupId>
-      <artifactId>micronaut-oraclecloud-oke-workload-identity</artifactId>
-    </dependency>
     <dependency>
       <groupId>io.micronaut</groupId>
       <artifactId>micronaut-inject</artifactId>
@@ -110,6 +106,10 @@ limitations under the License.
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-engine</artifactId>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.micronaut.oraclecloud</groupId>
+      <artifactId>micronaut-oraclecloud-oke-workload-identity</artifactId>
     </dependency>
   </dependencies>
 

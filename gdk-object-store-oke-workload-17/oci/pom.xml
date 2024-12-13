@@ -46,7 +46,7 @@ limitations under the License.
     <repository>
       <id>central</id>
       <url>https://repo.maven.apache.org/maven2</url>
-    </repository>    
+    </repository>
     <repository>
       <id>gdk</id>
       <url>https://maven.oracle.com/public</url>
