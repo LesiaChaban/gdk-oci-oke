@@ -12,7 +12,7 @@ spec:
       labels:
         app: "oci"
     spec:
-      serviceAccountName: gcn-service-acct # <ii>
+      serviceAccountName: gdk-service-acct # <ii>
       automountServiceAccountToken: true
       containers:
         - name: "oci"

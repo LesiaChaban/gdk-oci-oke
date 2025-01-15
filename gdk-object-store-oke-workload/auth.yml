@@ -7,13 +7,13 @@ apiVersion: v1
 kind: ServiceAccount # <2>
 metadata:
   namespace: ${K8S_NAMESPACE}
-  name: gcn-service-acct
+  name: gdk-service-acct
 ---
 kind: Role # <3>
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   namespace: ${K8S_NAMESPACE}
-  name: gcn_service_role
+  name: gdk_service_role
 rules:
   - apiGroups: [""]
     resources: ["services", "endpoints", "configmaps", "secrets", "pods"]
@@ -29,5 +29,5 @@ subjects:
     name: gcn-service-acct
 roleRef:
   kind: Role
-  name: gcn_service_role
+  name: gdk_service_role
   apiGroup: rbac.authorization.k8s.io
