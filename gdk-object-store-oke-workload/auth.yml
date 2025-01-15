@@ -23,10 +23,10 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding # <4>
 metadata:
   namespace: ${K8S_NAMESPACE}
-  name: gcn_service_role_bind
+  name: gdk_service_role_bind
 subjects:
   - kind: ServiceAccount
-    name: gcn-service-acct
+    name: gdk-service-acct
 roleRef:
   kind: Role
   name: gdk_service_role
