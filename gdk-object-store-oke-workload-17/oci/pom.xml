@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-Copyright 2024 Oracle and/or its affiliates
+Copyright 2025 Oracle and/or its affiliates
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -18,13 +18,13 @@ limitations under the License.
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.example</groupId>
-  <artifactId>gdk-object-store-oke-workload-oci</artifactId>
+  <artifactId>gdk-os-oke-oci</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>${packaging}</packaging>
 
   <parent>
     <groupId>com.example</groupId>
-    <artifactId>gdk-object-store-oke-workload-parent</artifactId>
+    <artifactId>gdk-os-oke-parent</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
   <properties>
@@ -33,7 +33,6 @@ limitations under the License.
     <release.version>17</release.version>
     <exec.mainClass>com.example.Application</exec.mainClass>
     <micronaut.runtime>netty</micronaut.runtime>
-    <exec.mainClass>com.example.Application</exec.mainClass>
     <!-- Runtime base container image to package the native executable -->
     <micronaut.native-image.base-image-run>frolvlad/alpine-glibc:alpine-3.16</micronaut.native-image.base-image-run>
     <!-- Using the latest GFTC Oracle GraalVM for JDK 17 Native Image container image to build the native executable -->
@@ -47,6 +46,7 @@ limitations under the License.
       <id>central</id>
       <url>https://repo.maven.apache.org/maven2</url>
     </repository>
+    
     <repository>
       <id>gdk</id>
       <url>https://maven.oracle.com/public</url>
@@ -138,6 +138,16 @@ limitations under the License.
   <build>
     <plugins>
       <plugin>
+        <groupId>org.graalvm.buildtools</groupId>
+        <artifactId>native-maven-plugin</artifactId>
+        <configuration>
+          <metadataRepository>
+            <enabled>true</enabled>
+            <version>0.3.15</version>
+          </metadataRepository>
+        </configuration>
+      </plugin>    
+      <plugin>
         <groupId>com.google.cloud.tools</groupId>
         <artifactId>jib-maven-plugin</artifactId>
         <configuration>
@@ -185,7 +195,7 @@ limitations under the License.
           </annotationProcessorPaths>
           <compilerArgs>
             <arg>-Amicronaut.processing.group=com.example</arg>
-            <arg>-Amicronaut.processing.module=gdk-object-store-oke-workload-oci</arg>
+            <arg>-Amicronaut.processing.module=gdk-os-oke-oci</arg>
           </compilerArgs>
         </configuration>
       </plugin>

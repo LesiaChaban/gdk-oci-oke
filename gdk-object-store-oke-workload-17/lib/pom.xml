@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-Copyright 2024 Oracle and/or its affiliates
+Copyright 2025 Oracle and/or its affiliates
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ limitations under the License.
 
   <parent>
     <groupId>com.example</groupId>
-    <artifactId>gdk-object-store-oke-workload-parent</artifactId>
+    <artifactId>gdk-os-oke-parent</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
 
@@ -39,7 +39,7 @@ limitations under the License.
       <id>central</id>
       <url>https://repo.maven.apache.org/maven2</url>
     </repository>
-
+    
     <repository>
       <id>gdk</id>
       <url>https://maven.oracle.com/public</url>
@@ -122,6 +122,16 @@ limitations under the License.
     </resources>
 
     <plugins>
+      <plugin>
+        <groupId>org.graalvm.buildtools</groupId>
+        <artifactId>native-maven-plugin</artifactId>
+        <configuration>
+          <metadataRepository>
+            <enabled>true</enabled>
+            <version>0.3.15</version>
+          </metadataRepository>
+        </configuration>
+      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
